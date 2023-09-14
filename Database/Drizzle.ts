@@ -13,4 +13,4 @@ export const cartColumns = pgTable("cartdata", {
   product_quantity: integer("product_quantity").notNull(),
 });
 
-export const db = drizzle(sql);      
+export const db = drizzle(sql);             
