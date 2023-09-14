@@ -17,25 +17,23 @@ export default function ProductDetails({
     function handleDecrement() {
         setQuantity(quantity - 1);
     }
-
     async function handleAddToCart() {
         try {
-            const res = await fetch("/api/cart", {
-                method: "POST",
-                body: JSON.stringify({
-                    //   user_id: userId,
-                    product_id: filteredData._id,
-                    product_title: filteredData.title,
-                    product_price: filteredData.price * quantity,
-                    product_quantity: quantity,
-                    image_url: urlForImage(filteredData.image).url(),
-                }),
-            });
+          const res = await fetch("/api/cart", {
+            method: "POST",
+            body: JSON.stringify({
+            //   user_id: userId,
+              product_id: filteredData._id,
+              product_title: filteredData.title,
+              product_price: filteredData.price * quantity,
+              product_quantity: quantity,
+              image_url: urlForImage(filteredData.image).url(),
+            }),
+          });
         } catch (error) {
-            console.log("error", error);
+          console.log("error", error);
         }
-    }
-
+      }
     return (
         <div className="bg-white">
             <div className="pb-16 pt-6 sm:pb-24">
