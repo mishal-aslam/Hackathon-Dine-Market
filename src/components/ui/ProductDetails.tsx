@@ -8,7 +8,7 @@ import { BsCart2 } from "react-icons/bs";
 export default function ProductDetails({
     filteredData,
 }: {
-    filteredData: any;
+    filteredData: any;        
 }) {
     const [quantity, setQuantity] = useState(1);
     function handleIncrement() {
@@ -188,3 +188,6 @@ export default function ProductDetails({
 </div>
 
 </div> */}
+
+
+//  mishal aslam 
