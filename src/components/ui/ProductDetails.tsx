@@ -17,23 +17,24 @@ export default function ProductDetails({
     function handleDecrement() {
         setQuantity(quantity - 1);
     }
+
     async function handleAddToCart() {
-        try {
-          const res = await fetch("/api/cart", {
-            method: "POST",
-            body: JSON.stringify({
-            //   user_id: userId,
-              product_id: filteredData._id,
-              product_title: filteredData.title,
-              product_price: filteredData.price * quantity,
-              product_quantity: quantity,
-              image_url: urlForImage(filteredData.image).url(),
-            }),
-          });
-        } catch (error) {
-          console.log("error", error);
-        }
-      }
+    try {
+      const res = await fetch("/api/cart", {
+        method: "POST",
+        body: JSON.stringify({
+          user_id: "nkxxkjhx",
+          product_id: filteredData._id,
+          product_title: filteredData.title,
+          product_price: filteredData.price * quantity,
+          product_quantity: quantity,
+          image_url: urlForImage(filteredData.image).url(),
+        }),
+      });
+    } catch (error) {
+      console.log("error", error);
+    }
+  }
     return (
         <div className="bg-white">
             <div className="pb-16 pt-6 sm:pb-24">
@@ -97,7 +98,7 @@ export default function ProductDetails({
                             </div>
                             <div className="flex gap-x-8 items-center">
                                 <button
-                                    onClick={() => handleAddToCart()} className="flex items-center text-white bg-gray-900 border border-gray-500 px-4 py-2"
+                                    onClick={handleAddToCart} className="flex items-center text-white bg-gray-900 border border-gray-500 px-4 py-2"
                                 >
                                     <BsCart2 />
                                     &nbsp;
@@ -189,5 +190,3 @@ export default function ProductDetails({
 
 </div> */}
 
-
-//  mishal aslam         

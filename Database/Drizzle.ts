@@ -2,7 +2,6 @@ import { sql } from "@vercel/postgres";
 import { integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
 import { drizzle } from "drizzle-orm/vercel-postgres";
 
-
 export const cartColumns = pgTable("cartdata", {
   id: serial("id").primaryKey(),
   user_id: varchar("user_id").notNull(),
@@ -13,4 +12,4 @@ export const cartColumns = pgTable("cartdata", {
   product_quantity: integer("product_quantity").notNull(),
 });
 
-export const db = drizzle(sql);             
+export const db = drizzle(sql);
