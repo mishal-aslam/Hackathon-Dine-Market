@@ -2,6 +2,8 @@
 import logo from "public/Logo.webp"
 import Image from "next/image"
 import Link from "next/link"
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import { ShoppingCart, Search, Menu } from "lucide-react"
 import {
     Sheet,
@@ -13,8 +15,8 @@ import {
 } from "@/components/ui/sheet"
 
 
-
 const Header = () => {
+    const { isSignedIn } = useAuth();
     return (
         <>
             <div className="flex justify-between items-center py-8  px-4 md:px-28 sm:px-1">
@@ -66,7 +68,16 @@ const Header = () => {
                 </div>
             </div>
 
-
+            <div className="flex justify-between absolute top-8 right-8">
+                {!isSignedIn && (
+                    <SignInButton mode="modal">
+                        <button className="bg-gray-800 hover:bg-primaryWhite text-white hover:text-blue-700 py-2 px-5 font-semibold rounded-lg">
+                            Log-In
+                        </button>
+                    </SignInButton>
+                )}
+                <UserButton afterSignOutUrl="/" />
+            </div>
         </>
     )
 }
